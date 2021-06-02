@@ -1,12 +1,15 @@
 import React from "react";
+import { Dashboard } from "./components/Dashboard";
+import { Header } from "./components/Haeader";
 import { GlobalStyle } from "./styles/global";
 
 
 export function App() {
   return (
-    <div className="App">
-      <h1> Hello Wolrd </h1>
+      <>
+      <Header/>
+      <Dashboard/>
       <GlobalStyle />
-    </div>
+    </>
   );
 }
