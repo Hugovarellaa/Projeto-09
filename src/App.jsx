@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import AddTask from './components/AddTask';
 
 class App extends Component {
   constructor() {
@@ -9,10 +10,7 @@ class App extends Component {
 
   render() {
     return (
-      <>
-        <input type="text" />
-        <button type="button"> Adicionar Tarefa </button>
-      </>
+      <AddTask />
     );
   }
 }
