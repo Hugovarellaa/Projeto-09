@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import AddTask from './components/AddTask';
+import Task from './components/Task';
 
 class App extends Component {
   constructor() {
@@ -10,13 +11,21 @@ class App extends Component {
     };
 
     this.createTask = this.createTask.bind(this);
+    this.removeTask = this.removeTask.bind(this);
   }
 
-  createTask(event, newTask) {
-    event.preventDefault();
+  createTask(newTask) {
     const { tasks } = this.state;
     this.setState({
       tasks: [...tasks, newTask],
+    });
+  }
+
+  removeTask(id) {
+    const { tasks } = this.state;
+    const updatedTasks = tasks.filter((task) => task.id !== id);
+    this.setState({
+      tasks: updatedTasks,
     });
   }
 
@@ -26,7 +35,11 @@ class App extends Component {
       <>
         <AddTask onCreate={this.createTask} />
         {tasks.map((task) => (
-          <h1>{task.title}</h1>
+          <Task
+            key={task.id}
+            data={task}
+            onRemove={this.removeTask}
+          />
         ))}
       </>
     );
