@@ -45,7 +45,8 @@ export const Avatar = styled.img`
   border-radius: 50%;
 
   @media (min-width: 768px) {
-    width: 100%;
+    width: 90%;
+    margin-top: -34px;
   }
 `;
 export const Row = styled.ul`
