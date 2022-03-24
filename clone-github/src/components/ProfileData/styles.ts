@@ -51,7 +51,7 @@ export const Avatar = styled.img`
 export const Row = styled.ul`
   display: flex;
   align-items: center;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
   margin: 20px 0;
 
   > li {
