@@ -1,15 +1,28 @@
-import React from 'react';
+import React, { FormEvent, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
-import { Container, GithubLogo, SearchForm } from './styles';
+import { Container, GithubLogo, SearchForm } from "./styles";
 
 export const Header: React.FC = () => {
+  const [search, setSearch] = useState("");
+
+  const navigate = useNavigate();
+
+  function handleSubmit(event: FormEvent) {
+    event.preventDefault();
+    navigate(`/` + search.toLowerCase().trim());
+  }
+
   return (
     <Container>
       <GithubLogo />
-      <SearchForm>
-        <input placeholder="Enter Username or Repo..."/>
+      <SearchForm onSubmit={handleSubmit}>
+        <input
+          placeholder="Enter Username or Repo..."
+          value={search}
+          onChange={(e) => setSearch(e.currentTarget.value)}
+        />
       </SearchForm>
     </Container>
-  )
-}
-
+  );
+};
