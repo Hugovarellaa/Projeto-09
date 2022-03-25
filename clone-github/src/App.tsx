@@ -5,6 +5,7 @@ import { Header } from "./components/Header";
 import { Profile } from "./pages/Profile";
 import { Repo } from "./pages/Repo";
 import { GlobalStyle } from "./styles/GlobalStyles";
+import { Footer } from "./components/Footer";
 
 export function App() {
   return (
@@ -15,7 +16,7 @@ export function App() {
         <Route path="/:username" element={<Profile />} />
         <Route path="/:username/:reponame" element={<Repo />} />
       </Routes>
-      {/* <Footer /> */}
+      <Footer />
       <GlobalStyle />
     </BrowserRouter>
   );
